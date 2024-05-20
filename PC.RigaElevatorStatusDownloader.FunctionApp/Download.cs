@@ -37,6 +37,7 @@ public class Download(Container container, HttpClient httpClient, ILogger<Downlo
             try
             {
                 _ = await _container.CreateItemAsync(elevatorStatus);
+                _logger.LogInformation("Item created.");
             }
             catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.Conflict)
             {
